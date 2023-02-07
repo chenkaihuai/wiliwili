@@ -1,5 +1,57 @@
 # wiliwili
 
+ubuntu22.04 lts安装补充
+编译工具
+sudo apt install gcc g++ make cmake
+
+依赖
+sudo apt install libcurl4-openssl-dev libmpv-dev libssl-dev curl doxygen libx11-dev libxrandr-dev libxineram-dev libxcurso-dev libxi-dev
+到时候报找不到可以再补
+
+lib
+需要先安装git
+apt install git
+
+之后在wiliwili/library目录分别clone各个lib，在github对应界面有跳转连接，点过去就可以了。
+像这样的clone
+git clone https://github.com/xfangfang/OpenCC.git
+git clone https://github.com/nayuki/QR-Code-generator.git
+git clone https://github.com/xfangfang/borealis.git
+git  clone https://github.com/xfangfang/cpr.git
+git clone https://github.com/imageworks/pystring.git
+git clone https://github.com/sammycage/lunasvg.git
+大陆访问使用github的git可能会连不上，也可以下载放进去。
+
+注意
+borealis自己也有一个lib需要clone
+在wiliwili/library/borealis/library/lib/extern/目录
+git clone https://github.com/xfangfang/glfw.git
+
+QR-Code-generator
+git的库的cpp文件夹和手动下载的cpp文件夹不一样，会报没有QRcode.cpp
+建议手动替换cpp文件夹（其他可以不管）。
+
+然后就可以cmake了，原版readme也有这部分命令行
+cmake -B build -DPLATFORM_DESKTOP=ON -DINSTALL=ON -DCMAKE_BUILD_TYPE=Release
+
+之后就是make了
+
+注意
+下面文件有一个没定义，我直接注释掉了，不知道什么功能没了。
+这个glfw_vido.cpp是三周前更新的（2023.01.07左右）。
+wiliwili/library/borealis/library/lib/platforms/glfw/glfw_video.cpp
+error: ‘GLFW_SOFT_FULLSCREEN’ was not declared in this scope
+注释掉193行就可以了。应该还有更好的解决方法等待着被发现。
+
+make -C build wiliwili -j$(nproc)
+
+编译桌面文件（可能是吧）
+sudo make -C build install
+
+之后就可以在系统软件里面看到wiliwili了。
+
+下面是原来的readme.md
+
 一个专为手柄用户设计的第三方 [B站](https://www.bilibili.com)客户端
 
 <img src="resources/svg/cn.xfangfang.wiliwili.svg" alt="icon" height="128" width="128" align="left">
