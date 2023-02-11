@@ -4,32 +4,36 @@ ubuntu22.04 lts安装补充
 编译工具
 sudo apt install gcc g++ make cmake
 
-依赖
+```shell
+#依赖
 sudo apt install libcurl4-openssl-dev libmpv-dev libssl-dev curl doxygen libx11-dev libxrandr-dev libxineram-dev libxcurso-dev libxi-dev
+```
 到时候报找不到可以再补
 
+```shell
 # 拉取代码
 需要先安装git
 apt install git
 git clone --recursive https://github.com/xfangfang/wiliwili.git
 cd wiliwili
-
-#使用git clone --recursive就可以拉取到lib的代码。而不是像我那样手动去拉取，这样你只需要关心网络就可以了。
+```
+使用git clone --recursive就可以拉取到lib的代码。而不是像我那样手动去拉取，这样你只需要关心网络就可以了。
 
 
 然后就可以cmake了，原版readme也有这部分命令行
-
+```shell
 cmake -B build -DPLATFORM_DESKTOP=ON -DINSTALL=ON -DCMAKE_BUILD_TYPE=Release
-
+```
 
 之后就是make了
-
-
+```shell
 make -C build wiliwili -j$(nproc)
+```
 
 编译桌面文件（可能是吧）
+```shell
 sudo make -C build install
-
+```
 之后就可以在系统软件里面看到wiliwili了。
 
 
