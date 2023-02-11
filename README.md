@@ -8,11 +8,9 @@ sudo apt install gcc g++ make cmake
 sudo apt install libcurl4-openssl-dev libmpv-dev libssl-dev curl doxygen libx11-dev libxrandr-dev libxineram-dev libxcurso-dev libxi-dev
 到时候报找不到可以再补
 
-lib
+# 拉取代码
 需要先安装git
 apt install git
-
-# 拉取代码
 git clone --recursive https://github.com/xfangfang/wiliwili.git
 cd wiliwili
 
@@ -25,8 +23,6 @@ cmake -B build -DPLATFORM_DESKTOP=ON -DINSTALL=ON -DCMAKE_BUILD_TYPE=Release
 
 
 之后就是make了
-
-
 
 
 make -C build wiliwili -j$(nproc)
