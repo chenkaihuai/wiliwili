@@ -1,8 +1,10 @@
 # wiliwili
 
 ubuntu22.04 lts安装补充
-编译工具
+```shell
+#编译工具
 sudo apt install gcc g++ make cmake
+```
 
 ```shell
 #依赖
